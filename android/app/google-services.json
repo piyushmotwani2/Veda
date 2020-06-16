@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "106846917524",
+    "firebase_url": "https://veda-b0e3d.firebaseio.com",
+    "project_id": "veda-b0e3d",
+    "storage_bucket": "veda-b0e3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106846917524:android:80dadfc71bf9c2460e7581",
+        "android_client_info": {
+          "package_name": "com.veda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106846917524-qebvat65du3i0lubptobnu0r99uut061.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1PReZokLY5_hsNpTdh6e5nrLj5IcN5ZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106846917524-qebvat65du3i0lubptobnu0r99uut061.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,8 +8,14 @@ import {
 } from 'react-native';
 
 const Login = () => {
+  state = { email: '', password: '', errorMessage: null }
   return(
-    <ScrollView  >
+    <View style = {
+      {
+        "alignItems": "flex-start",
+        "flex": 1
+      }
+    } >
     <View style = {
       {
         "alignItems": "flex-start",
@@ -83,7 +89,7 @@ const Login = () => {
     } > Login </Text>
     </TouchableOpacity>
     </View>
-    </ScrollView>
+    </View>
 
   )
 }
