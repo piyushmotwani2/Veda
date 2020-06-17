@@ -8,7 +8,7 @@ import Schedule from '../login/Schedule'
 const Routes = () => (
    <Router>
       <Scene key = "root">
-         <Scene key = "login" component = {Login} title = "Login" initial = {true}  />
+         <Scene key = "login" component = {Login} initial = {true}  />
          <Scene key = "assignment" component = {Assignment} title = "Assignment" />
          <Scene key = "attendance" component = {Attendance} title = "Attendance" />
          <Scene key = "schedule" component = {Schedule} title = "Schedule" />

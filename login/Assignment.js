@@ -38,8 +38,8 @@ const Assignment = () =>  {
     } >
     <View style = {
       {
-        flexDirection: 'row',
-        alignItems: 'flex-start'
+        flexDirection: "row",
+        alignItems: "flex-start"
       }
     } > <View style = {
       {

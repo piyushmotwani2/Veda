@@ -1,89 +1,144 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ScrollView
-} from 'react-native';
+import React, {useState} from 'react';
+import {View,Text,TextInput,TouchableOpacity} from 'react-native';
+import { Dimensions, PixelRatio } from 'react-native';
+import auth from '@react-native-firebase/auth';
+import { Actions } from 'react-native-router-flux';
+
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
+
+
+const widthDP = widthPercent => {
+    // Convert string input to decimal number
+    const elemWidth = parseFloat(widthPercent);
+    return PixelRatio.roundToNearestPixel(screenWidth * elemWidth / 100);
+};
+
+const heightDP = heightPercent => {
+    // Convert string input to decimal number
+    const elemHeight = parseFloat(heightPercent);
+    return PixelRatio.roundToNearestPixel(screenHeight * elemHeight / 100);
+};
+
+
+
+
 
 const Login = () => {
-  state = { email: '', password: '', errorMessage: null }
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  handleLogin = () => {
+    auth().signInWithEmailAndPassword(email,password).then(() => {
+      Actions.assignment();
+    })
+    .catch(errorMessage => {
+      if (error.code === 'auth/invalid-email') {
+        console.log('email invalid');
+      }
+  
+      if (error.code === 'auth/user-not-found') {
+        console.log('User not found');
+      }
+      if (error.code === 'auth/wrong-password') {
+        console.log('Password entered is wrong');
+      }
+  
+      console.error(errorMessage);
+    });
+  }
+
   return(
     <View style = {
       {
-        "alignItems": "flex-start",
-        "flex": 1
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent":"center",
       }
     } >
+    
     <View style = {
       {
         "alignItems": "flex-start",
-        "paddingStart": 78,
-        "paddingTop": 248,
-        "width": 640,
-        "height": 1136,
-        "borderWidth": 2,
-        "borderColor": "rgba(64, 51, 238, 255)"
+        "paddingStart": 39,
+        "paddingTop": 124,
+        "width": 320,
+        "height": 568
       }
     } >
     <Text style = {
       {
         "fontFamily": "SF UI Text",
         "fontWeight": "400",
-        "fontSize": 48,
+        "fontSize": 24,
         "color": "rgba(108, 92, 189, 255)",
-        "marginStart": 109
+        "marginStart": 54.5
       }
     } > Hey, There! </Text>
     <Text style = {
       {
         "fontFamily": "SF UI Text",
-        "fontSize": 22,
+        "fontSize": 11,
         "color": "rgba(58, 57, 57, 255)",
-        "marginStart": 87,
-        "marginTop": 15
+        "marginStart": 43.5,
+        "marginTop": 7.5
       }
     } > Enter your credentials to login </Text>
-    <TextInput style = {
+    <TextInput 
+      autoCapitalize="none"
+      placeholder="Email"
+      onChangeText={email => setEmail(email)}
+      value={email}style = {
       {
         "alignItems": "flex-start",
-        "marginTop": 95,
-        "width": 485,
-        "height": 96,
-        "borderRadius": 48,
+        "marginTop": 47.5,
+        "width": 242.5,
+        "height": 48,
+        "borderRadius": 24,
+        "padding": 15,
         "backgroundColor": "rgba(244, 244, 254, 255)"
       }
     }
     />
-    <TextInput style = {
+    <TextInput 
+      secureTextEntry
+      autoCapitalize="none"
+      placeholder="Password"
+      onChangeText={password => setPassword( password )}
+      value = {password}
+      style = {
       {
         "alignItems": "flex-start",
-        "marginTop": 67,
-        "width": 485,
-        "height": 96,
-        "borderRadius": 48,
+        "marginTop": 33.5,
+        "width": 242.5,
+        "height": 48,
+        "padding": 15,
+        "borderRadius": 24,
         "backgroundColor": "rgba(244, 244, 254, 255)"
       }
     }
     />
-    <TouchableOpacity style = {
+    <TouchableOpacity 
+      onPress ={this.handleLogin}
+      style = {
       {
         "alignItems": "flex-start",
-        "paddingStart": 82,
-        "paddingTop": 24,
-        "marginStart": 119,
-        "marginTop": 67,
-        "width": 246,
-        "height": 85,
-        "borderRadius": 42.5,
+        "paddingStart": 41,
+        "paddingTop": 12,
+        "marginStart": 59.5,
+        "marginTop": 33.5,
+        "width": 128,
+        "height": 42.5,
+        "borderRadius": 21.25,
         "backgroundColor": "rgba(108, 92, 189, 255)"
       }
     } >
     <Text style = {
       {
         "fontFamily": "SF UI Text",
-        "fontSize": 32,
+        "fontSize": 14,
         "color": "rgba(255, 255, 255, 255)"
       }
     } > Login </Text>
