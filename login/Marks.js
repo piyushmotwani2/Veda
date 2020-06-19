@@ -14,7 +14,7 @@ const Assignment = () =>  {
         "flex": 1
       }
     } >
-    <View style = {
+    {/*<View style = {
       {
         "alignItems": "flex-start",
         "width": 720,
@@ -59,7 +59,7 @@ const Assignment = () =>  {
     } >
 
     {
-      /* <Path /> {Path is not supported. It can be exported as Svg} */ }
+      /* <Path /> {Path is not supported. It can be exported as Svg}  }
     <View style = {
       {
         "width": 33.85,
@@ -80,7 +80,7 @@ const Assignment = () =>  {
     }
     source = {
       {
-        /* add your source here */ }
+        /* add your source here  }
     }
     />
     </View>
@@ -337,7 +337,16 @@ const Assignment = () =>  {
     </View>
     </View>
     </View>
-    </View>
+  </View>*/}
+  <Text style = {
+      {
+        "fontFamily": "SF UI Text",
+        "fontWeight": "400",
+        "fontSize": 32,
+        "color": "rgba(161, 154, 154, 255)",
+        "marginStart": 55
+      }
+    } > Ethics and Values </Text>
     </View>
 
   )

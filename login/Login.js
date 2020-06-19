@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View,Text,TextInput,TouchableOpacity} from 'react-native';
+import {View,Text,TextInput,TouchableOpacity, ScrollView,ImageBackground, ImageBackgroundBase} from 'react-native';
 import { Dimensions, PixelRatio } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { Actions } from 'react-native-router-flux';
@@ -24,7 +24,6 @@ const heightDP = heightPercent => {
 
 
 
-
 const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -32,33 +31,36 @@ const Login = () => {
 
   handleLogin = () => {
     auth().signInWithEmailAndPassword(email,password).then(() => {
-      Actions.assignment();
+      Actions.home();
     })
-    .catch(errorMessage => {
-      if (error.code === 'auth/invalid-email') {
+    .catch(e => {
+      if (e.code === 'auth/invalid-email') {
         console.log('email invalid');
       }
   
-      if (error.code === 'auth/user-not-found') {
+      if (e.code === 'auth/user-not-found') {
         console.log('User not found');
       }
-      if (error.code === 'auth/wrong-password') {
+      if (e.code === 'auth/wrong-password') {
         console.log('Password entered is wrong');
       }
   
-      console.error(errorMessage);
+      console.error(e);
     });
   }
 
   return(
+    <ImageBackground source={require('../assets/line.png')} style={{width: '100%', height: '100%'}}>
     <View style = {
       {
         "alignItems": "center",
         "flex": 1,
-        "justifyContent":"center",
+        "justifyContent":"center"
       }
     } >
-    
+
+
+
     <View style = {
       {
         "alignItems": "flex-start",
@@ -145,6 +147,7 @@ const Login = () => {
     </TouchableOpacity>
     </View>
     </View>
+    </ImageBackground>
 
   )
 }
