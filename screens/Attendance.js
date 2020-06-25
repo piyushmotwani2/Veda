@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { TouchableOpacity, StyleSheet, View, Text, SafeAreaView } from 'react-native';
+import React, {useState} from 'react';
+import { TouchableOpacity, StyleSheet, View, Text, SafeAreaView, Picker } from 'react-native';
 
 const Attendance = ({ navigation }) => {
+  const [selectedSubject, setSelectedSubject] = useState("MAT1001");
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor:"#FFF", alignItems:"center"}}>
@@ -16,42 +17,51 @@ const Attendance = ({ navigation }) => {
           "fontFamily": "SF UI Text",
           "fontSize": 24,
           "color": "rgba(18, 18, 18, 255)",
-          "marginTop": 47
+          "marginTop": "10%"
         }
         } > Subject: </Text>
         <View style = {
       {
         flexDirection: 'row',
         "alignItems": "flex-start",
-        "paddingStart": 24,
-        "paddingTop": 10,
-        "marginStart": 34,
-        "marginTop": 47,
-        "width": 180,
-        "height": 40,
-        "borderRadius": 35,
+        "paddingStart": "8%",
+        "marginStart": "8%",
+        "marginTop": "10%",
+        "width": "45%",
+        "height": "50%",
+        "borderRadius": 50,
         "borderWidth": 1,
         "borderColor": "rgba(18, 18, 18, 255)"
       }
     } >
-      <Text style = {
+      <Picker
+      selectedValue ={selectedSubject}
+      onValueChange = {(ItemValue,ItemIndex) => setSelectedSubject(ItemValue)}
+      style = {
       {
         "fontFamily": "SF UI Text",
         "fontSize": 14,
         "color": "rgba(18, 18, 18, 255)",
-        "textAlign":"center"
+        "textAlign":"center",
+        "height": 40,
+        "width" :150
       }
-    } > CSE1001 - Introdu. </Text>
+    } >
+      <Picker.Item label = "MAT1001" value = "MAT1001"/>
+      <Picker.Item label = "ENG1001" value = "ENG1001"/>
+      <Picker.Item label = "PHY1001" value = "PHY1001"/>
+      <Picker.Item label = "CHY1001" value = "CHY1001"/>
+    </Picker>
     </View>
       </View>
-      <View style={{flexDirection:"row", marginLeft:"auto", marginRight:"auto"}}>
-      <View style={{marginLeft:40, marginRight:40}}>
+      <View style={{flexDirection:"row", justifyContent: "space-around", width:"100%"}}>
+      <View style={{flexDirection: "column", justifyContent: "space-between"}}>
         <Text style = {
         {
           "fontFamily": "SF UI Text",
           "fontSize": 38,
+          textAlign: "center",
           "color": "rgba(108, 92, 189, 255)",
-          "marginStart": 32,
           "marginTop": 50
         }
       } > 25 </Text>
@@ -64,13 +74,13 @@ const Attendance = ({ navigation }) => {
         }
       } > Total Classes </Text>
       </View>
-      <View style={{marginLeft:40, marginRight:40}}>
+      <View style={{flexDirection: "column", justifyContent: "space-between"}}>
         <Text style = {
         {
           "fontFamily": "SF UI Text",
           "fontSize": 38,
           "color": "rgba(95, 238, 180, 255)",
-          "marginStart": 32,
+          "textAlign":"center",
           "marginTop": 50
         }
       } > 20 </Text>

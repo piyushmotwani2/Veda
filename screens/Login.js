@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View,Text,TextInput,TouchableOpacity, ScrollView,ImageBackground, ImageBackgroundBase} from 'react-native';
+import {View,Text,TextInput,TouchableOpacity, ImageBackground} from 'react-native';
 import { Dimensions, PixelRatio } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { Actions } from 'react-native-router-flux';
@@ -31,7 +31,7 @@ const Login = () => {
 
   handleLogin = () => {
     auth().signInWithEmailAndPassword(email,password).then(() => {
-      Actions.home();
+      Actions.notification();
     })
     .catch(e => {
       if (e.code === 'auth/invalid-email') {

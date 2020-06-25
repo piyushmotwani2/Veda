@@ -5,9 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import Schedule from '../login/Schedule';
-import Attendance from '../login/Attendance';
-import Marks from '../login/Marks';
+import Schedule from '../screens/Schedule';
+import Attendance from '../screens/Attendance';
+import Marks from '../screens/Marks';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
